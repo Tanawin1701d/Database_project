@@ -49,7 +49,8 @@ delimiter $
 create procedure query_customer(in userid varchar(50) )
 	  begin
 		select * 
-		from CUSTOMER left outer join USER on CUSTOMER.userid = USER.UserId and CUSTOMER.userid =userid;
+		from CUSTOMER left outer join USER on CUSTOMER.userid = USER.UserId
+        where CUSTOMER.userid =userid;
       #output CarRegNum,  BloodGroup, PhoneNumber, FirstName, LastName, BirthDate, Address,Username,Password
       end$
 delimiter ;
@@ -59,7 +60,8 @@ delimiter $
 create procedure query_provider(in userid varchar(50) )
 	  begin
 			select * 
-            from PROVIDER left outer join USER on PROVIDER.userid = USER.userid and PROVIDER.userid = userid;
+            from PROVIDER left outer join USER on PROVIDER.userid = USER.userid
+            where PROVIDER.userid = userid;
       #output userid,CarRegNum,BloodGroup,PhoneNumber, FirstName, LastName, BirthDate, Address,Username,Password
       end$
 delimiter ;      
@@ -224,7 +226,8 @@ create procedure query_appointment_customer(
 	begin
 			select * 
             from	MAKE_SCHEDULE left outer join SCHEDULE 
-			    	on MAKE_SCHEDULE.ScheduleId = SCHEDULE.ScheduleId and MAKE_SCHEDULE.CustomerId =  userid_customer;
+			    	on MAKE_SCHEDULE.ScheduleId = SCHEDULE.ScheduleId
+                    where MAKE_SCHEDULE.CustomerId =  userid_customer;
 			# output SchduleId, ProviderId, CustomerId, Status, Date, Duration, RatingScore, RantingText
     end$
 delimiter ;    
@@ -238,7 +241,8 @@ create procedure query_appointment_provider(
 	begin
 		select * 
             from	MAKE_SCHEDULE left outer join SCHEDULE 
-			    	on MAKE_SCHEDULE.ScheduleId = SCHEDULE.ScheduleId and MAKE_SCHEDULE.ProviderId =  userid_provider ;
+			    	on MAKE_SCHEDULE.ScheduleId = SCHEDULE.ScheduleId 
+                    where MAKE_SCHEDULE.ProviderId =  userid_provider ;
     # output SchduleId, ProviderId, CustomerId, Status, Date, Duration, RatingScore, RantingText
     end$
 

@@ -6,10 +6,10 @@ from (
 		from CUSTOMER left outer join USER on CUSTOMER.userid = USER.UserId
 	 ) as c_side, 
      (
-			select MAKE_SCHEDURE.ProviderId as pid_inter,
-				   MAKE_SCHEDURE.CustomerId as cid_inter,
-				   sum(SCHEDURE.Duration)   as d_inter
-			from   MAKE_SCHEDURE left outer join SCHEDURE on MAKE_SCHEDURE.ScheduleId = SCHEDURE.ScheduleId
+			select MAKE_SCHEDULE.ProviderId as pid_inter,
+				   MAKE_SCHEDULE.CustomerId as cid_inter,
+				   sum(SCHEDULE.Duration)   as d_inter
+			from   MAKE_SCHEDULE left outer join SCHEDURE on MAKE_SCHEDURE.ScheduleId = SCHEDURE.ScheduleId
 			group by pid_inter, cid_inter
 			having (pid_inter, d_inter) in (
 											select dsep.pid as pid_compress, max(dsep.d) as dmax
