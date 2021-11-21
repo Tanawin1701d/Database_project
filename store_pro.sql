@@ -114,7 +114,7 @@ drop procedure if exists update_provider;
 delimiter $
 create procedure update_provider(
 								   in userid varchar(50),
-								   in work_exp varchar(7),
+								   in work_exp varchar(140),
 									# user pool
 								   in phone_number varchar(10),
 								   in first_name varchar(30), 
