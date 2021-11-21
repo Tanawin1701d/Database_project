@@ -11,7 +11,7 @@ delimiter $
             select max(SCHEDULE.ScheduleId)+1 into new_id
             from SCHEDULE;
 			
-            if (new_id = NULL)then 
+            if (new_id = NULL or (new_id > 10000000) )then 
 				return 0;
             end if;
             return(new_id);

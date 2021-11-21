@@ -98,7 +98,7 @@ create procedure update_customer(in userid varchar(50),
             
             update USER
             set    
-				PhoneNumber = phone_number,
+				PhoneNo = phone_number,
                 FirstName = first_name,
                 LastName = last_name,
                 BirthDate = birth_date,
@@ -133,7 +133,7 @@ create procedure update_provider(
 				
 			update USER
 			set    
-				PhoneNumber = phone_number,
+				PhoneNo = phone_number,
 				FirstName = first_name,
 				LastName = last_name,
 				BirthDate = birth_date,
